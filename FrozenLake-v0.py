@@ -19,7 +19,7 @@ epsilon_decay_value = epsilon / (epsilon_decaying_end - epsilon_decaying_start) 
 episode_rewards = []
 statistics = {'episode': [], 'avg': [], 'max': [], 'min': []}
 
-q_table = np.random.uniform(low=-1, high=0, size=(env.observation_space.n, env.action_space.n))
+q_table = np.random.uniform(low=0, high=1, size=(env.observation_space.n, env.action_space.n))
 
 
 for episode in range(episodes):

@@ -3,23 +3,23 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 
-env = gym.make('Taxi-v3')
+env = gym.make('FrozenLake8x8-v0')
 
 # Hyperparameters
-episodes = 100000               # Number of episodes to run
+episodes = 1000000              # Number of episodes to run
 alpha = 0.01                    # Learning rate
 gamma = 0.99                    # Discount (Determines how important future rewards are.)
 epsilon = 1                     # Ratio between exploration and exploitation
 min_epsilon = 0.00              # Minimum epsilon
 epsilon_decaying_start = 1      # Episode to start epsilon decaying
-epsilon_decaying_end = 90000    # Episode to end epsilon decaying
+epsilon_decaying_end = 900000   # Episode to end epsilon decaying
 epsilon_decay_value = epsilon / (epsilon_decaying_end - epsilon_decaying_start) # Epsilon decay value per episode
 
 # Statistics
 episode_rewards = []
 statistics = {'episode': [], 'avg': [], 'max': [], 'min': []}
 
-q_table = np.random.uniform(low=-10, high=20, size=(env.observation_space.n, env.action_space.n))
+q_table = np.random.uniform(low=0, high=1, size=(env.observation_space.n, env.action_space.n))
 
 
 for episode in range(episodes):
